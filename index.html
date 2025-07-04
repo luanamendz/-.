@@ -1,26 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Me Perdoa</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Desculpa e Música</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      position: relative;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.5em;
+      margin-bottom: 30px;
+      white-space: pre-line;
+    }
+    button {
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+    #tristeza {
+      font-size: 3em;
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #tristeza.show {
+      opacity: 1;
+    }
+    audio {
+      width: 100%;
+      outline: none;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #222;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Me desculpa</h1>
-    <p class="mensagem">
-  Me desculpa, não devia ter falado aquilo e sei que te chateei.  
-  Você tem total razão de ter se chateado comigo.  
-  Desculpa, neném 🤍☹️
+    <p>
+      Eu pesei o clima falando besteira, não deveria nem ter começado, perdão<br>
+      Eu gosto de você, só de você.<br>
+      Falei aquilo, mas não tem comparação o quanto gosto de você e conversar com você,<br>
+      eu te estresso mas não gosto de te magoar, desculpa :(
     </p>
-    <button id="perdoaBtn">Me Perdoa?</button>
 
-    <div class="resposta" id="respostaBtns">
-      <button id="simBtn">Sim</button>
+    <audio id="musica" controls>
+      <source src="musica.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio.
+    </audio>
+
+    <div>
+      <button id="simBtn">Me perdoa mesmo?</button>
       <button id="naoBtn">Não</button>
     </div>
+
+    <div id="tristeza">😔</div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const simBtn = document.getElementById('simBtn');
+    const naoBtn = document.getElementById('naoBtn');
+    const tristeza = document.getElementById('tristeza');
+
+    simBtn.addEventListener('click', () => {
+      const numero = '5598985197503';
+      const mensagem = encodeURIComponent('Eu perdoo :)');
+      window.location.href = `https://wa.me/${numero}?text=${mensagem}`;
+    });
+
+    naoBtn.addEventListener('click', () => {
+      tristeza.classList.add('show');
+      setTimeout(() => {
+        tristeza.classList.remove('show');
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
