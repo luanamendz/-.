@@ -4,26 +4,24 @@ const naoBtn = document.getElementById('naoBtn');
 const simBtn = document.getElementById('simBtn');
 const container = document.querySelector('.container');
 
-// Mostrar os botões "Sim" e "Não"
+// Mostrar botões "Sim" e "Não" ao clicar em "Me Perdoa?"
 perdoaBtn.addEventListener('click', () => {
   perdoaBtn.style.display = 'none';
   respostaBtns.style.display = 'block';
 });
 
-// WhatsApp quando clicar em "Sim"
+// Redireciona para a página extra ao clicar "Sim"
 simBtn.addEventListener('click', () => {
-  const numero = '5598985197503';
-  const mensagem = encodeURIComponent('Eu perdoo :)');
-  window.location.href = `https://wa.me/${numero}?text=${mensagem}`;
+  window.location.href = 'agradecimento.html';
 });
 
-// Quando passa o mouse no botão "Não"
+// Faz o botão "Não" mudar de lugar e mostrar frase ao passar o mouse
 naoBtn.addEventListener('mouseover', () => {
   moveButton();
   createEmojiEffect();
 });
 
-// Quando clica no botão "Não"
+// Faz o botão "Não" mudar de lugar e mostrar frase ao clicar
 naoBtn.addEventListener('click', () => {
   moveButton();
   createEmojiEffect();
@@ -42,11 +40,19 @@ function moveButton() {
   naoBtn.style.top = `${randomY}px`;
 }
 
-// Criar efeito de emoji saindo do botão "Não"
+// Frases tristes para efeito
 function createEmojiEffect() {
+  const frases = [
+    'Por favor 😢',
+    'Desculpa 💔',
+    'Nãooo 😞',
+    'Não seja assim ☹️',
+    'Perdão 😔'
+  ];
+
   const emoji = document.createElement('div');
   emoji.classList.add('emoji');
-  emoji.innerText = Math.random() > 0.5 ? '😢' : '💔';
+  emoji.innerText = frases[Math.floor(Math.random() * frases.length)];
 
   const btnRect = naoBtn.getBoundingClientRect();
   const containerRect = container.getBoundingClientRect();
@@ -60,5 +66,5 @@ function createEmojiEffect() {
 
   setTimeout(() => {
     emoji.remove();
-  }, 1500);
+  }, 2000);
 }
