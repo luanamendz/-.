@@ -4,30 +4,29 @@ const naoBtn = document.getElementById('naoBtn');
 const simBtn = document.getElementById('simBtn');
 const container = document.querySelector('.container');
 
-// Mostrar botões "Sim" e "Não" ao clicar em "Me Perdoa?"
+// Mostrar botões
 perdoaBtn.addEventListener('click', () => {
   perdoaBtn.style.display = 'none';
   respostaBtns.style.display = 'block';
 });
 
-// Redireciona para a página extra ao clicar "Sim"
+// Redirecionar ao clicar em "Sim"
 simBtn.addEventListener('click', () => {
   window.location.href = 'agradecimento.html';
 });
 
-// Faz o botão "Não" mudar de lugar e mostrar frase ao passar o mouse
+// Botão "Não" muda de lugar + efeito
 naoBtn.addEventListener('mouseover', () => {
   moveButton();
   createEmojiEffect();
 });
 
-// Faz o botão "Não" mudar de lugar e mostrar frase ao clicar
 naoBtn.addEventListener('click', () => {
   moveButton();
   createEmojiEffect();
 });
 
-// Função para mover o botão "Não"
+// Move botão "Não"
 function moveButton() {
   const maxX = container.offsetWidth - naoBtn.offsetWidth;
   const maxY = container.offsetHeight - naoBtn.offsetHeight;
@@ -40,7 +39,7 @@ function moveButton() {
   naoBtn.style.top = `${randomY}px`;
 }
 
-// Frases tristes para efeito
+// Efeitos tristes
 function createEmojiEffect() {
   const frases = [
     'Por favor 😢',
