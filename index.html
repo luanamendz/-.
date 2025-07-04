@@ -4,10 +4,30 @@
   <meta charset="UTF-8" />
   <title>Me Perdoa</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .mensagem {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: aparecer 2s ease forwards;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Me desculpa</h1>
+
     <p class="mensagem">
       Me desculpa, não devia ter falado aquilo e sei que te chateei.<br>
       Você tem total razão de ter se chateado comigo.<br>
