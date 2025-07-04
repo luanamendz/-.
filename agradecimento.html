@@ -16,8 +16,6 @@
       margin: 0;
       padding: 20px;
       text-align: center;
-      opacity: 0;
-      animation: aparecer 10s ease forwards;
     }
 
     .container {
@@ -29,11 +27,24 @@
       position: relative;
     }
 
-    p {
+    .mensagem {
       font-size: 1.2em;
       line-height: 1.5em;
       margin-bottom: 30px;
       white-space: pre-line;
+      opacity: 0;
+      animation: aparecer 10s ease forwards;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     button {
@@ -74,7 +85,7 @@
 </head>
 <body>
   <div class="container">
-    <p>
+    <p class="mensagem">
       Eu pesei o clima falando besteira, não deveria nem ter começado, perdão.<br>
       Eu gosto de você, só de você.<br>
       Eu te estressar é uma coisa, mas não gosto de te magoar, desculpa :(
