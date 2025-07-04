@@ -1,8 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(#1d1d1d, #3a3a3a);
+  background: #000000; /* fundo preto */
   color: white;
   height: 100vh;
   display: flex;
@@ -15,8 +19,10 @@ body {
   background: rgba(255, 255, 255, 0.05);
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
   position: relative;
+  width: 90%;
+  max-width: 500px;
 }
 
 .mensagem {
@@ -33,14 +39,38 @@ button {
   color: white;
   font-size: 1em;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: darkred;
+  transform: scale(1.05);
 }
 
 .resposta {
   display: none;
   position: relative;
+  margin-top: 20px;
+}
+
+/* Emojis tristes que flutuam */
+.emoji {
+  position: absolute;
+  font-size: 24px;
+  animation: floatUp 1.5s ease-out forwards;
+  pointer-events: none;
+  opacity: 0.9;
+  transform: translate(-50%, 0);
+  z-index: 10;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -60px);
+    opacity: 0;
+  }
 }
